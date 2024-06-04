@@ -15,7 +15,7 @@
                             <a class="btn btn-secondary btn-square mx-1" href="https://www.instagram.com/mezie11/" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                         <div class="d-flex align-items-end justify-content-between border-top">
-                            <a href="" class="btn w-50 border-end">GitHub</a>
+                            <a href="https://github.com/emmanuelmezie" target="_blank" class="btn w-50 border-end">GitHub</a>
                             <a href="#contact" class="btn w-50 btn-scroll">Contact Me</a>
                         </div>
                     </div>
@@ -23,6 +23,9 @@
                 <div class="col-lg-8">
                     <!-- About Start -->
                     <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        @if(Session::has('bnmessage'))
+                            <div class="alert alert-success" role="alert">{{Session::get('bnmessage')}}</div>
+                        @endif
                         <h1 class="title pb-3 mb-5">About Me</h1>
                         <p>
                         A full-stack web developer with over 11 years of working experience and high efficiency in technical customer support. I have developed websites and web applications ranging from Single page systems, e-commerce systems, 
@@ -156,76 +159,21 @@
                     <section class="py-5 wow fadeInUp" data-wow-delay="0.1s">
                         <h1 class="title pb-3 mb-5">Expericence</h1>
                         <div class="border-start border-2 border-light pt-2 ps-5">
+                           
+                            @foreach ($experiences as $experience)
                             <div class="position-relative mb-4">
                                 <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
-                                <h5 class="mb-1">Web Designer</h5>
-                                <p class="mb-2">Soft Company | <small>2000 - 2050</small></p>
-                                <p>Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam</p>
+                                <h5 class="mb-1">{{ucwords($experience->title)}}</h5>
+                                <p class="mb-2">{{ucwords($experience->company_name)}} | <small>{{$experience->start_year}} - {{$experience->end_year}}</small></p>
+                                <p>
+                                    {{$experience->description}}
+                                </p>
                             </div>
-                            <div class="position-relative mb-4">
-                                <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
-                                <h5 class="mb-1">Web Designer</h5>
-                                <p class="mb-2">Soft Company | <small>2000 - 2050</small></p>
-                                <p>Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam</p>
-                            </div>
-                            <div class="position-relative mb-4">
-                                <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
-                                <h5 class="mb-1">Web Designer</h5>
-                                <p class="mb-2">Soft Company | <small>2000 - 2050</small></p>
-                                <p>Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam</p>
-                            </div>
+                            @endforeach
+
                         </div>
                     </section>
                     <!-- Expericence End -->
-
-                    <!-- Subscribe Start -->
-                    <section class="wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="bg-secondary text-center p-5">
-                            <h1 class="text-white font-weight-bold">Subscribe My Newsletter</h1>
-                            <p class="text-white">Subscribe and get my latest article in your inbox</p>
-                            <div class="position-relative w-100">
-                                <input class="form-control bg-dark border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                                <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Subscribe</button>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- Subscribe End -->
-
-                    <!-- Services Start -->
-                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="title pb-3 mb-5">Stories</h1>
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="service-item">
-                                    <i class="fa fa-2x fa-laptop-code mx-auto mb-4"></i>
-                                    <h5 class="mb-2">Web Design</h5>
-                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="service-item">
-                                    <i class="fab fa-2x fa-android mx-auto mb-4"></i>
-                                    <h5 class="mb-2">Apps Development</h5>
-                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="service-item">
-                                    <i class="fa fa-2x fa-search mx-auto mb-4"></i>
-                                    <h5 class="mb-2">SEO</h5>
-                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="service-item">
-                                    <i class="fa fa-2x fa-edit mx-auto mb-4"></i>
-                                    <h5 class="mb-2">Content Creating</h5>
-                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- Services End -->
 
                     <!-- Portfolio Start -->
                     <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
@@ -236,62 +184,28 @@
                                     <div class="col-12 text-center mb-2">
                                         <ul class="list-inline mb-4" id="portfolio-flters">
                                             <li class="btn btn-secondary active"  data-filter="*"><i class="fa fa-star me-2"></i>All</li>
-                                            <li class="btn btn-secondary" data-filter=".first"><i class="fa fa-laptop-code me-2"></i>Design</li>
-                                            <li class="btn btn-secondary" data-filter=".second"><i class="fa fa-mobile-alt me-2"></i>Development</li>
+                                            <li class="btn btn-secondary" data-filter=".design"><i class="fa fa-laptop-code me-2"></i>Design</li>
+                                            <li class="btn btn-secondary" data-filter=".development"><i class="fa fa-mobile-alt me-2"></i>Development</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="row portfolio-container">
-                                    <div class="col-md-6 mb-4 portfolio-item first">
-                                        <div class="position-relative overflow-hidden mb-2">
-                                            <img class="img-fluid w-100" src="{{asset('dist/img/portfolio-1.jpg')}}" alt="">
-                                            <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                              <div style="padding:15px;">
-                                                <p style="font-size:12px;">The Oluebube A. Chukwu Foundation will be a veritable vehicle for strategic philanthropy geared toward Building 
-                                                Today, For a Better Tomorrow, for everyone we may touch through our various programmes. <br/>
-                                                <a class="btn btn-primary btn-sm mt-2" style="border-radius:10px;" href="http://oluebubeachukwufoundation.org/" target="_blank">
-                                                    View Site
-                                                  </a>
-                                                </p>
-                                              </div>
+                                    @foreach ($portfolios as $portfolio)
+                                        <div class="col-md-6 mb-4 portfolio-item {{$portfolio->portfolio_type}}">
+                                            <div class="position-relative overflow-hidden mb-2">
+                                                <img class="img-fluid w-100" src="{{$portfolio->image_path}}" alt="">
+                                                <div class="portfolio-btn d-flex align-items-center justify-content-center">
+                                                <div style="padding:15px;">
+                                                    <p style="font-size:12px;"> {{ Str::limit($portfolio->description, $limit = 100, $end = ' ...') }} <br/>
+                                                    <a class="btn btn-primary btn-sm mt-2" style="border-radius:10px;" href="{{$portfolio->project_url}}" target="_blank">
+                                                        View Site
+                                                    </a>
+                                                    </p>
+                                                </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 mb-4 portfolio-item second">
-                                        <div class="position-relative overflow-hidden mb-2">
-                                            <img class="img-fluid w-100" src="{{asset('dist/img/portfolio-2.jpg')}}" alt="">
-                                            <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                              <div style="padding:15px;">
-                                                <p style="font-size:12px;">The Oluebube A. Chukwu Foundation will be a veritable vehicle for strategic philanthropy geared toward Building 
-                                                Today, For a Better Tomorrow, for everyone we may touch through our various programmes. <br/>
-                                                <a class="btn btn-primary btn-sm mt-2" style="border-radius:10px;" href="http://oluebubeachukwufoundation.org/" target="_blank">
-                                                    View Site
-                                                  </a>
-                                                </p>
-                                              </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-4 portfolio-item first">
-                                        <div class="position-relative overflow-hidden mb-2">
-                                            <img class="img-fluid w-100" src="{{asset('dist/img/portfolio-3.jpg')}}" alt="">
-                                            <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                                <a href="{{asset('dist/img/portfolio-3.jpg')}}" data-lightbox="portfolio">
-                                                    <i class="bi bi-plus text-light"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-4 portfolio-item second">
-                                        <div class="position-relative overflow-hidden mb-2">
-                                            <img class="img-fluid w-100" src="{{asset('dist/img/portfolio-4.jpg')}}" alt="">
-                                            <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                                <a href="{{asset('dist/img/portfolio-4.jpg')}}" data-lightbox="portfolio">
-                                                    <i class="bi bi-plus text-light"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -302,39 +216,19 @@
                     <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
                         <h1 class="title pb-3 mb-5">Testimonial</h1>
                         <div class="owl-carousel testimonial-carousel">
+                            @foreach ($testimonials as $testimonial)
                             <div class="text-left">
                                 <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                <p class="fs-4 mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</p>
+                                <p class="fs-4 mb-4">{{$testimonial->testimony}}</p>
                                 <div class="d-flex align-items-center">
-                                    <img class="img-fluid" src="{{asset('dist/img/testimonial-1.jpg')}}" style="width: 60px; height: 60px;">
+                                    <img class="img-fluid" src="{{$testimonial->image_path}}" style="width: 60px; height: 60px;">
                                     <div class="ps-3">
-                                        <p class="text-primary fs-5 mb-1">Client Name</p>
-                                        <i>Profession</i>
+                                        <p class="text-primary fs-5 mb-1">{{$testimonial->name}}</p>
+                                        <i>{{$testimonial->profession}}</i>
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-left">
-                                <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                <p class="fs-4 mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</p>
-                                <div class="d-flex align-items-center">
-                                    <img class="img-fluid" src="{{asset('dist/img/testimonial-2.jpg')}}" style="width: 60px; height: 60px;">
-                                    <div class="ps-3">
-                                        <p class="text-primary fs-5 mb-1">Client Name</p>
-                                        <i>Profession</i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-left">
-                                <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                <p class="fs-4 mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</p>
-                                <div class="d-flex align-items-center">
-                                    <img class="img-fluid" src="{{asset('dist/img/testimonial-3.jpg')}}" style="width: 60px; height: 60px;">
-                                    <div class="ps-3">
-                                        <p class="text-primary fs-5 mb-1">Client Name</p>
-                                        <i>Profession</i>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </section>
                     <!-- Testimonial End -->
@@ -342,37 +236,40 @@
                     <!-- Contact Start -->
                     <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
                         <h1 class="title pb-3 mb-5">Contact Me</h1>
-						        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-secondary" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
+                                @if(Session::has('bnmessage'))
+                                    <div class="alert alert-success" role="alert">{{Session::get('bnmessage')}}</div>
+                                @endif
+						        <form wire:submit.prevent="addContact">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0 bg-secondary" id="name" placeholder="Your Name" wire:model="name">
+                                                <label for="name">Your Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="email" class="form-control border-0 bg-secondary" id="email" placeholder="Your Email" wire:model="email">
+                                                <label for="email">Your Email</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0 bg-secondary" id="subject" placeholder="Subject" wire:model="subject">
+                                                <label for="subject">Subject</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <textarea class="form-control border-0 bg-secondary" wire:model="message" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>
+                                                <label for="message">Message</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control border-0 bg-secondary" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-secondary" id="subject" placeholder="Subject">
-                                        <label for="subject">Subject</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control border-0 bg-secondary" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>
-                                        <label for="message">Message</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                                </div>
-                            </div>
-                        </form>
+                                </form>
                     </section>
                     <!-- Contact End -->
 
@@ -380,15 +277,14 @@
                     <section class="wow fadeIn" data-wow-delay="0.1s">
                         <div class="bg-secondary text-light text-center p-5">
                             <div class="d-flex justify-content-center mb-4">
-                                <a class="btn btn-dark btn-square mx-1" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-dark btn-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-dark btn-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-dark btn-square mx-1" href="#"><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-secondary btn-square mx-1" href="https://x.com/i_mezie" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-secondary btn-square mx-1" href="https://www.facebook.com/chimeemanuel" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-secondary btn-square mx-1" href="https://www.linkedin.com/in/irozuru-emmanuel-chimezerem-09383bab/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-secondary btn-square mx-1" href="https://www.instagram.com/mezie11/" target="_blank"><i class="fab fa-instagram"></i></a>
                             </div>
                             <div class="d-flex justify-content-center mb-3">
-                                <a class="text-light px-3 border-end" href="#">Privacy</a>
-                                <a class="text-light px-3 border-end" href="#">Terms</a>
-                                <a class="text-light px-3 border-end" href="#">FAQs</a>
+                                <a class="text-light px-3 border-end" href="{{route('index')}}">Home</a>
+                                <a class="text-light px-3 border-end" href="{{route('testimony')}}">Drop a Testimonial</a>
                                 <a class="text-light px-3" href="#">Help</a>
                             </div>
 							

@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('testimonials', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('testimonial_id');
             $table->string('name')->nullable();
-            $table->string('profession')->nullable();
-            $table->string('testimony')->nullable();
-            $table->string('cloudinary_image_id')->nullable();
-            $table->text('image_path')->nullable();
+            $table->string('email')->nullable();
+            $table->string('subject')->nullable();
+            $table->text('message')->nullable();
             $table->boolean('status')->nullable()->default(false);
             $table->timestamps();
         });
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('testimonials');
+        Schema::dropIfExists('contacts');
     }
 };

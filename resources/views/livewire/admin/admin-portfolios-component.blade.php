@@ -1,8 +1,6 @@
 <main>
-  
-    <section>
-      <div class="container mt-5">
-          <h2 class="text-center">Admin My Portfolios</h2>
+    <div class="container mt-5" style="margin-top:25px;">
+          <h2 class="text-center">My Portfolios</h2>
           <div class="row">
               {{-- Blog News session --}}
             <div class="col-md-12">
@@ -36,6 +34,11 @@
                                                     <option value="design">Design</option>
                                                     <option value="development">Development</option>
                                             </select>
+                                        </div>
+
+                                        <div class="form-group mt-2">
+                                          <input type="text" class="form-control" placeholder="Project URL" required wire:model="project_url">
+                                          @error('project_url') <p class="text-danger">{{$message}}</p>@enderror
                                         </div>
 
                                         <div class="form-group mt-2" wire:ignore>
@@ -107,7 +110,7 @@
                                                     <h5 class="modal-title">Edit Portfolio</h5>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form enctype="multipart/form-data" wire:submit.prevent="updateFeaturedNews">
+                                                    <form enctype="multipart/form-data" wire:submit.prevent="updatePortfolio">
                                                         <div class="form-group mt-2">
                                                             <label>Name</label>
                                                             <input type="text" class="form-control" placeholder="Project name" required wire:model="editproject_name">
@@ -120,6 +123,12 @@
                                                                     <option value="design">Design</option>
                                                                     <option value="development">Development</option>
                                                             </select>
+                                                        </div>
+
+                                                        <div class="form-group mt-2">
+                                                            <label>Project URL</label>
+                                                            <input type="text" class="form-control" placeholder="Project URL" required wire:model="editproject_url">
+                                                            @error('editproject_url') <p class="text-danger">{{$message}}</p>@enderror
                                                         </div>
 
                                                         <div class="form-group mt-2" wire:ignore>
@@ -156,6 +165,5 @@
                     </div>
             </div>   
           </div>
-      </div>
-    </section>
+    </div>
 </main>

@@ -181,9 +181,8 @@
                                     <td>{{ucwords($news->title)}}</td>
                                     <td>
                                         <div class="post-item">
-                                        
                                             <a href="{{$news->image_path}}" data-gallery="portfolioGallery" class="portfolio-lightbox">
-                                                <img src="{{$news->image_path}}" alt="Oluebube A. Chukwu Image Blog{{$news->id}}">
+                                                <img src="{{$news->image_path}}" alt="Blog{{$news->id}}">
                                             </a>
                                         </div>
                                     </td>

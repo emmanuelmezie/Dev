@@ -12,6 +12,8 @@
           <li><a class="{{request()->routeIs('adminnews') ? 'active' : '' }}" href="{{route('adminnews')}}">Blog</a></li>
           <li><a class="{{request()->routeIs('adminexperience') ? 'active' : '' }}" href="{{route('adminexperience')}}">My Experiences</a></li>
           <li><a class="{{request()->routeIs('adminportfolios') ? 'active' : '' }}" href="{{route('adminportfolios')}}">My Portfolio</a></li>
+          <li><a class="{{request()->routeIs('admintestimonies') ? 'active' : '' }}" href="{{route('admintestimonies')}}">My Testimonies</a></li>
+          <li><a class="{{request()->routeIs('admincontacts') ? 'active' : '' }}" href="{{route('admincontacts')}}">Contacts</a></li>
           <li><a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">Logout</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

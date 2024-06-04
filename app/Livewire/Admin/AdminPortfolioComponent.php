@@ -11,8 +11,8 @@ use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 class AdminPortfolioComponent extends Component
 {
     use WithFileUploads;
-    public $portfolio_id, $portfolio_type, $project_name, $description, $image;
-    public $editportfolio_type, $editproject_name, $editdescription, $editimage;
+    public $portfolio_id, $portfolio_type, $project_url, $project_name, $description, $image;
+    public $editportfolio_type, $editproject_name, $editproject_url, $editdescription, $editimage;
     public $isLoading = false;
 
 
@@ -39,6 +39,7 @@ class AdminPortfolioComponent extends Component
         $newPortfolio = new Portfolio();
         $newPortfolio->portfolio_id = Str::random(10);
         $newPortfolio->project_name = $this->project_name;
+        $newPortfolio->project_url = $this->project_url;
         $newPortfolio->portfolio_type = $this->portfolio_type;
         $newPortfolio->description = $this->description;
         
@@ -67,21 +68,24 @@ class AdminPortfolioComponent extends Component
         {
             $this->portfolio_id= $portfolio->id;
             $this->editportfolio_type= $portfolio->portfolio_type;
+            $this->editproject_url= $portfolio->project_url;
             $this->editproject_name = $portfolio->project_name;
             $this->editdescription = $portfolio->description;
         }
     }
 
-    public function updateFeaturedNews()
+    public function updatePortfolio()
     {
 
-        $news = FeaturedNews::find($this->news_id);
-        $news->title = $this->edittitle;
-        $news->external_url = $this->editexternal_url;
-        $news->save();
-        $news->refresh();
+        $portfolio = Portfolio::find($this->portfolio_id);
+        $portfolio->project_name = $this->editproject_name;
+        $portfolio->portfolio_type = $this->editportfolio_type;
+        $portfolio->project_url = $this->editproject_url;
+        $portfolio->description = $this->editdescription;
+        $portfolio->save();
+        $portfolio->refresh();
 
-        return redirect()->route('adminfeaturednews')->with('bnmessage','Featured News updated successfully!'); 
+        return redirect()->route('adminportfolios')->with('bnmessage','Portfolio updated successfully!'); 
     }
 
     public function deletePortfolio($portfolio_id)

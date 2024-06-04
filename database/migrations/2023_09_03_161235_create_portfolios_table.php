@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('portfolio_type');
             $table->string('project_name');
             $table->text('description');
+            $table->string('project_url')->nullable();
             $table->string('cloudinary_image_id')->nullable();
             $table->text('image_path')->nullable();
             $table->boolean('status')->nullable()->default(true);

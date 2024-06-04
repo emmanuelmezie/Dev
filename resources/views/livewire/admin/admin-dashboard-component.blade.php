@@ -17,7 +17,7 @@
             <div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
               <div class="count-box">
                 <i class="bi bi-headset"></i>
-                <span data-purecounter-start="0" data-purecounter-end="0" data-purecounter-duration="1" class="purecounter"></span>
+                <span data-purecounter-start="0" data-purecounter-end="{{$portfolios->count()}}" data-purecounter-duration="1" class="purecounter"></span>
                 <p><strong>Portfolios</strong></p>
               </div>
             </div>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Livewire\HomePageComponent;
+use App\Livewire\TestimonyFormComponent;
 use App\Livewire\SingleNewsComponent;
 use App\Livewire\Auth\LoginComponent;
 use App\Livewire\Auth\RegisterComponent;
@@ -15,6 +16,8 @@ use App\Livewire\Admin\AdminNewsComponent;
 use App\Livewire\Admin\AdminSingleBlogNewsComponent;
 use App\Livewire\Admin\AdminExperiencesComponent;
 use App\Livewire\Admin\AdminPortfolioComponent;
+use App\Livewire\Admin\AdminTestimoniesComponent;
+use App\Livewire\Admin\AdminContactsComponent;
 
 
 /*
@@ -28,7 +31,8 @@ use App\Livewire\Admin\AdminPortfolioComponent;
 |
 */
 
-Route::get('/', HomePageComponent::class)->name('index');;
+Route::get('/', HomePageComponent::class)->name('index');
+Route::get('/testimonial-form', TestimonyFormComponent::class)->name('testimony');
 Route::get('/login', LoginComponent::class)->name('login');
 Route::get('/0~/en/get-started', RegisterComponent::class)->name('get-started');
 Route::get('/en-news/{category_name}/{blog_id}', SingleNewsComponent::class)->name('singlenews');
@@ -42,4 +46,6 @@ Route::middleware([AdminAuth::class])->group(function () {
     Route::get('/0/admin/blog-news/{blog_id}', AdminSingleBlogNewsComponent::class)->name('adminsingleblognews');
     Route::get('/0/admin/experience', AdminExperiencesComponent::class)->name('adminexperience');
     Route::get('/0/admin/portfolios', AdminPortfolioComponent::class)->name('adminportfolios');
+    Route::get('/0/admin/testimonies', AdminTestimoniesComponent::class)->name('admintestimonies');
+    Route::get('/0/admin/contacts', AdminContactsComponent::class)->name('admincontacts');
 });
