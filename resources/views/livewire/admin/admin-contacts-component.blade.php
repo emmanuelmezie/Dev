@@ -35,7 +35,7 @@
                                     <a class="mx-2" wire:click.prevent="updateTestimonyStatus({{$contact->id}})">
                                         <i class="bx bx-edit"> Approve</i> 
                                     </a>
-                                    <a href="#" onclick="confirm('Are you sure you want to delete this Testimony?') || event.stopImmediatePropagation()" wire:click.prevent="deleteTestimony({{$contact->id}})"><i class="bx bx-trash" style="color:red;"></i> </a>
+                                    <a href="#" onclick="confirm('Are you sure you want to delete this Testimony?') || event.stopImmediatePropagation()" wire:click.prevent="deleteContact({{$contact->id}})"><i class="bx bx-trash" style="color:red;"></i> </a>
                                     
                                 </td>
                             </tr>

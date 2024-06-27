@@ -2,7 +2,7 @@
             <div class="row g-5">
                 <div class="col-lg-4 sticky-lg-top vh-100">
                     <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
-                        <img class="w-100 img-fluid mb-4" src="{{asset('dist/img/profile.jpg')}}" alt="Image">
+                        <img class="w-100 img-fluid mb-4" src="https://res.cloudinary.com/dxw06ktju/image/upload/v1716981553/DMA_9738_iukxtv.jpg" alt="Image">
                         <h1 class="text-primary mt-2">Chime Emmanuel</h1>
                         <div class="mb-4" style="height: 22px;">
                             <h4 class="typed-text-output d-inline-block text-light"></h4>

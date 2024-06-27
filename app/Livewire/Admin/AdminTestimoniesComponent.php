@@ -17,6 +17,17 @@ class AdminTestimoniesComponent extends Component
         return redirect()->route('admintestimonies')->with('bnmessage','Testimony status updated successfully!'); 
     }
 
+    public function deleteTestimony($testimony_id)
+    {
+        $testimony = Testimonial::find($testimony_id);
+        if($testimony->cloudinary_image_id)
+        {
+            $deleteFromCloud = Cloudinary::destroy($testimony->cloudinary_image_id);
+        }
+        $testimony->delete();
+        session()->flash('bnmessage','Testimony Deleted Successfully!'); 
+    }
+
     public function render()
     {
         $testimonies = Testimonial::orderBy('created_at', 'desc')->get();

@@ -2,7 +2,7 @@
             <div class="row g-5">
                 <div class="col-lg-4 sticky-lg-top vh-100">
                     <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
-                        <img class="w-100 img-fluid mb-4" src="{{asset('dist/img/profile.jpg')}}" alt="Image">
+                        <img class="w-100 img-fluid mb-4" src="https://res.cloudinary.com/dxw06ktju/image/upload/v1716981553/DMA_9738_iukxtv.jpg" alt="Image">
                         <h1 class="text-primary mt-2">Chime Emmanuel</h1>
                         <div class="mb-4" style="height: 22px;">
                             <h4 class="typed-text-output d-inline-block text-light"></h4>
@@ -191,7 +191,7 @@
                                 </div>
                                 <div class="row portfolio-container">
                                     @foreach ($portfolios as $portfolio)
-                                        <div class="col-md-6 mb-4 portfolio-item {{$portfolio->portfolio_type}}">
+                                        <div class="col-md-4 mb-4 portfolio-item {{$portfolio->portfolio_type}}">
                                             <div class="position-relative overflow-hidden mb-2">
                                                 <img class="img-fluid w-100" src="{{$portfolio->image_path}}" alt="">
                                                 <div class="portfolio-btn d-flex align-items-center justify-content-center">
